@@ -1,0 +1,37 @@
+{
+  "name": "acme_school",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effyyzhang/acme_school.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/effyyzhang/acme_school/issues"
+  },
+  "homepage": "https://github.com/effyyzhang/acme_school#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "babel-loader": "^8.0.6"
+  }
+}

@@ -1,6 +1,6 @@
 const conn = require('./conn')
 const { Sequelize } = conn;
-const {UUID, UUIDV4, STRING, DECIMAL, TEXT} = Sequelize;
+const {UUID, UUIDV4, STRING, DECIMAL, TEXT, VIRTUAL} = Sequelize;
 
 const Student = conn.define('student', {
     id:{
@@ -38,6 +38,19 @@ const Student = conn.define('student', {
         type: DECIMAL,
         allowNull: false,
         unique: false
+    },
+
+    schoolId:{
+        type: UUID,
+        defaultValue: UUIDV4,
+    },
+
+    fullName:{
+        type: VIRTUAL,
+        get: function(){
+            var fullName = this.get('firstName')+' '+this.get('lastName');
+            return fullName
+        }
     }
 });
 

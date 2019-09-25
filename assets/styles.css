@@ -1,0 +1,30 @@
+.logo{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+li, .school-link, .student-link {
+    width: 400px;
+    border: 1px solid gray;
+    padding: 1rem;
+}
+
+.school-bg{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}

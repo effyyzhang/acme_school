@@ -2,24 +2,24 @@ const conn = require('./conn')
 const School = require('./School');
 const Student = require('./Student');
 
-// Student.belongsTo(School);
-// School.hasMany(Student);
+Student.belongsTo(School);
+School.hasMany(Student);
 
 const map = (model, data) => data.map(value => model.create(value));
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
   const schools = [
-    {name: 'Harvard', imgURL:"https://en.wikipedia.org/wiki/Harvard_University#/media/File:Harvard_shield_wreath.svg" },
-    {name: 'NYU', imgURL:"https://en.wikipedia.org/https://www1.cbn.com/sites/default/files/styles/video_ratio_16_9/public/media/slider/images/nyu-logo_hdv.jpg?itok=OqgaeS41/Harvard_University#/media/File:Harvard_shield_wreath.svg" },
-    {name: 'MIT', imgURL:"http://www.hultprize.org/wp-content/uploads/2017/04/MIT-Logo.png://en.wikipedia.org/https://www1.cbn.com/sites/default/files/styles/video_ratio_16_9/public/media/slider/images/nyu-logo_hdv.jpg?itok=OqgaeS41/Harvard_University#/media/File:Harvard_shield_wreath.svg" }
+    {name: 'Harvard', imgURL:"https://kdp0l43vw6z2dlw631ififc5-wpengine.netdna-ssl.com/wp-content/uploads/2009/01/harvard-logo-263-1024x1024.jpg" },
+    {name: 'NYU', imgURL:"https://www.nyu.edu/projects/dawes/NYUlogo.jpg" },
+    {name: 'MIT', imgURL:"https://childcare.mit.edu/sites/default/files/images/MIT-logo-with-spelling-office-red-gray-design1.png" }
     ];
 
-    const [Havard, NYU, MIT] = await Promise.all(map(School, schools));
+    const [Harvard, NYU, MIT] = await Promise.all(map(School, schools));
 
   const students = [
-    {firstName:'Effy', lastName: 'Zhang', email:'effyzhang@gmail.com', GPA: 4.0},
-    {firstName:'Brian', lastName: 'Lovin', email:'brianlovin@gmail.com', GPA: 3.8},
-    {firstName:'Bryn', lastName: 'Jackson', email:'brynjackson@gmail.com', GPA: 3.6}
+    {firstName:'Effy', lastName: 'Zhang', email:'effyzhang@gmail.com', GPA: 4.0, schoolId: Harvard.id},
+    {firstName:'Brian', lastName: 'Lovin', email:'brianlovin@gmail.com', GPA: 3.8, schoolId: NYU.id},
+    {firstName:'Bryn', lastName: 'Jackson', email:'brynjackson@gmail.com', GPA: 3.6, schoolId: MIT.id}
     ];
 
     const [effy, brian, bryn] = await Promise.all(map(Student, students));

@@ -2,7 +2,7 @@ const conn = require('./conn')
 const School = require('./School');
 const Student = require('./Student');
 
-Student.belongsTo(School);
+Student.belongsTo(School, { foreignKey: 'schoolId' });
 School.hasMany(Student);
 
 const map = (model, data) => data.map(value => model.create(value));

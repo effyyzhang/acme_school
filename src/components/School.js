@@ -24,11 +24,9 @@ const School = ({schools, students, location}) => {
         </div>
 
     )
-
 };
 
 const mapStateToProps = ({ schools, students})=> {
-    console.log(history.pathname)
     return {
         schools,
         students

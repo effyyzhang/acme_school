@@ -13,7 +13,7 @@ const Student = conn.define('student', {
     firstName:{
         type: STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
         validate: {
             notEmpty: true
         }
@@ -22,7 +22,7 @@ const Student = conn.define('student', {
     lastName:{
         type: STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
         validate: {
             notEmpty: true
         }

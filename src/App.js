@@ -10,6 +10,7 @@ import Schools from './Components/Schools';
 import Students from './Components/Students';
 import Home from './Components/Home';
 import School from './Components/School';
+import Create from './Components/Create';
 
 
 
@@ -17,12 +18,12 @@ class App extends Component{
     componentDidMount(){
         this.props.fetchSchools();
         this.props.fetchStudents();
-        console.log(this.props);
     }
     render(){
         return(
             <HashRouter>
                 <Route component={Nav} />
+                <Route component={Create} />
                 {/* <Route render={({location}) => <Nav path={location.pathname}/>} /> */}
                 <Switch>
                     <Route path='/schools' exact component={Schools} />

@@ -36,6 +36,15 @@ const _destroyStudent = (student) => {
     }
 }
 
+const createStudent = (student) => {
+    console.log(student)
+    return async dispatch => {
+        const response = (await axios.post(`/api/students/`, student)).data;
+        console.log('posted')
+        return dispatch(_createStudent(response))
+    }
+}
+
 const fetchSchools = () => {
     return async(dispatch) => {
         const schools = (await axios.get('/api/schools')).data;
@@ -50,4 +59,6 @@ const fetchStudents = () => {
     }
 }
 
-export {fetchSchools, fetchStudents};
+
+
+export {fetchSchools, fetchStudents, createStudent};

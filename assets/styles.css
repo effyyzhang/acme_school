@@ -17,7 +17,7 @@ ul{
     list-style: none;
 }
 
-li, .school-link, .student-link {
+li, .school-link{
     width: 400px;
     border: 1px solid gray;
     padding: 1rem;
@@ -28,3 +28,9 @@ li, .school-link, .student-link {
     height: 200px;
     object-fit: contain;
 }
+
+.create{
+    display: flex;
+    flex-direction: column;
+}
+

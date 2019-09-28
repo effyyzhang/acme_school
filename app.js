@@ -36,6 +36,13 @@ app.get('/', (req, res) => {
       .catch(next);
   });
 
+  app.put('/api/students/:id', (req, res, next)=> {
+    Student.findByPk(req.params.id)
+    .then( student => student.update(req.body))
+    .then( student => res.send(student))
+    .catch(next);
+  });
+
   app.delete('/api/students/:id', (req, res, next)=> {
     Student.findByPk(req.params.id)
       .then( student => student.destroy())

@@ -8,23 +8,22 @@ const Schools = ({schools, students, history}) => {
     }
     return (
         <ul>
-            {
-                schools.map( school =>
-                <li  key = { school.id}>
+            {schools.map(school =><li key = {school.id}>
                     <a onClick = {ev => history.push(`/schools/${school.id}`)}><h3>{school.name}</h3></a>
                     <img className='logo' src = {school.imgURL}></img>
                     <p>Student Count {count(school.id, students)}</p>
                     <select>
-                        <option defaultValue=''>--Add Student--</option>
+                        <option value=''>--Add Student--</option>
                         {
-                            students.filter(student => student.schoolId !== school.id)
-                            .map(
-                                student => <option key={student.id} value = {student.fullName}>
+                            students
+                            .filter(student => student.schoolId !== school.id)
+                            .map(student =>
+                                <option key={student.id} value = {student.fullName}>
                                 {student.fullName}
                                 </option>
-                            )}
+                                )
+                        }
                     </select>
-
                 </li>)
             }
         </ul>

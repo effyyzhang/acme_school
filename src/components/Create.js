@@ -25,7 +25,17 @@ class Create extends Component{
             GPA: gpa,
             schoolId: enrollment
         })
-        .then(() => this.props.history.push('/students'))
+        .then(() => {
+            this.setState({
+                firstName: '',
+                lastName:'',
+                email:'',
+                gpa:'',
+                enrollment:'',
+                error:''
+            })
+            this.props.history.push('/students')
+        })
         .catch( ex => this.setState({ error: ex.response.data.message }))
 
     }
@@ -51,8 +61,8 @@ class Create extends Component{
                     </label>
                     <label>Enrolled At
                     <select id ='enrollment' onChange = {(ev) => this.setState({enrollment: ev.target.value})} >
-                        <option value = '' selected>--Select School--</option>
-                        { schools.map( school => <option value = {school.id}> {school.name} </option> ) }
+                        <option value=''>--Select School--</option>
+                        { schools.map(school => <option key={school.id} value = {school.id} > {school.name} </option> ) }
                     </select>
                     </label>
                     <button onClick = {create}>Create</button>

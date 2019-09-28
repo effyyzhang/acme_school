@@ -22,13 +22,11 @@ const studentReducer = (state = [], action) => {
             return state.map(student => (student.id === action.student.id)? action.student : student);
 
         case DESTROY_STUDENT:
-            return state.map(student => student.id !== action.student.id)
+            return state.filter(student => student.id !== action.student.id)
         default:
             return state;
     }
 }
-
-
 
 const reducer = combineReducers({
     schools: schoolReducer,

@@ -37,11 +37,23 @@ const _destroyStudent = (student) => {
 }
 
 const createStudent = (student) => {
-    console.log(student)
     return async dispatch => {
         const response = (await axios.post(`/api/students/`, student)).data;
-        console.log('posted')
         return dispatch(_createStudent(response))
+    }
+}
+
+const destroyStudent = (student) => {
+    return async dispatch => {
+        await axios.delete(`/api/students/${student.id}`)
+        return dispatch(_destroyStudent(student))
+    }
+}
+
+const updateStudent = (student) => {
+    return async dispatch => {
+        await axios.put(`/api/students/${student.id}`, student);
+        return dispatch(_updateStudent(student));
     }
 }
 
@@ -61,4 +73,5 @@ const fetchStudents = () => {
 
 
 
-export {fetchSchools, fetchStudents, createStudent};
+
+export {fetchSchools, fetchStudents, createStudent, destroyStudent, updateStudent};

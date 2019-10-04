@@ -30,7 +30,16 @@ li, .school-link{
 }
 
 .create{
-    display: flex;
-    flex-direction: column;
+    width: 320px;
+    display: grid;
+    grid-template-columns: 100px auto;
 }
 
+.create label{
+    grid-column: 1/2;
+}
+
+.create input{
+    grid-column: 2/3;
+    text-align: center;
+}

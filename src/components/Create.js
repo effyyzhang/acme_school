@@ -47,24 +47,24 @@ class Create extends Component{
             <div>
                 <div>{error && <h6 className='error'>{error}</h6>}</div>
                 <form className ='create' >
-                    <label>First Name
+                    <label>First Name</label>
                     <input id ='firstName' onChange = {(ev) => this.setState({firstName: ev.target.value})}></input>
-                    </label>
-                    <label>Last Name
+
+                    <label>Last Name</label>
                     <input id ='lastName' onChange = {(ev) => this.setState({lastName: ev.target.value})}></input>
-                    </label>
-                    <label>Email
+
+                    <label>Email</label>
                     <input id ='email' onChange = {(ev) => this.setState({email: ev.target.value})}></input>
-                    </label>
-                    <label>GPA
+
+                    <label>GPA</label>
                     <input id ='gpa' onChange = {(ev) => this.setState({gpa: ev.target.value})}></input>
-                    </label>
-                    <label>Enrolled At
+
+                    <label>Enrolled At</label>
                     <select id ='enrollment' onChange = {(ev) => this.setState({enrollment: ev.target.value})} >
                         <option value=''>--Select School--</option>
                         { schools.map(school => <option key={school.id} value = {school.id} > {school.name} </option> ) }
                     </select>
-                    </label>
+
                     <button onClick = {create}>Create</button>
                 </form>
             </div>

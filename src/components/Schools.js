@@ -30,9 +30,27 @@ const Schools = ({schools, students, history}) => {
     )
 };
 
-const mapStateToProps = ({ schools, students})=> {
+const mapStateToProps = ({ schools, students},{location})=> {
+    let filtered = schools;
+    const schoolList = {};
+    students.map(student => {
+        if(Object.keys(schoolList).indexOf(student.schoolId) < 0){
+            schoolList[student.schoolId] = 1
+        }else{
+            schoolList[student.schoolId]++
+        }
+    })
+    const maxStudentsCount = Math.max(...Object.values(schoolList))
+    const popularSchoolIds = Object.keys(schoolList).filter(key => schoolList[key] === maxStudentsCount)
+    const popularSchools = schools.filter(school => (popularSchoolIds.indexOf(school.id)>-1))
+    if(location.pathname === '/schools/popular'){
+        filtered = popularSchools
+        console.log(filtered)
+
+
+    }
     return {
-        schools,
+        schools: filtered,
         students
     };
   };

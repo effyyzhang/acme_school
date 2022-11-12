@@ -38,7 +38,7 @@
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.19.0",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "babel-loader": "^8.0.6",
